@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление для Ани</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> <!-- Добавлен шрифт -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1b1b1b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Pacifico', cursive; /* Новый шрифт */
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            color: #f1c40f;
+            z-index: 10;
+            animation: flicker 2s infinite; /* Мерцание текста */
+        }
+
+        h1 {
+            font-size: 60px;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 28px;
+            color: #f1c40f;
+        }
+
+        /* Эффект мерцания текста */
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            70% {
+                opacity: 0.9;
+            }
+        }
+
+        /* Общие стили объектов (цветы, шарики, подарки) */
+        .object {
+            position: absolute;
+            opacity: 0;
+            animation: appear 8s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        /* Цветы */
+        .flower {
+            width: 50px;
+            height: 50px;
+            background-color: #ff6347;
+            border-radius: 50%;
+        }
+
+        .flower:nth-child(odd) {
+            background-color: #9b59b6;
+        }
+
+        /* Шарики */
+        .balloon {
+            width: 30px;
+            height: 50px;
+            background-color: #f39c12;
+            border-radius: 50% 50% 0 0;
+            animation: floatBalloon 12s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(2n+1) {
+            background-color: #1abc9c;
+        }
+
+        /* Подарки */
+        .gift {
+            width: 40px;
+            height: 40px;
+            background-color: #3498db;
+            border: 4px solid #ecf0f1;
+            animation: bounceGift 6s ease-in-out infinite;
+        }
+
+        .gift:nth-child(odd) {
+            background-color: #e74c3c;
+        }
+
+        /* Анимации объектов */
+        @keyframes appear {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+
+        @keyframes floatBalloon {
+            0% {
+                transform: translateY(100vh) scale(1);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1.1);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounceGift {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        /* Рандомные позиции объектов */
+        .object {
+            top: calc(10% + 80% * var(--random-y));
+            left: calc(5% + 90% * var(--random-x));
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>С Днём Рождения, Аня!</h1>
+        <p>Сегодня, 24 сентября, мы отмечаем твой особенный день!</p>
+        <p>Ты — душа нашего чата SkyTechDev, всегда внимательная, отзывчивая и заботливая.</p>
+        <p>Спасибо за тёплую атмосферу, которую ты создаёшь для всех нас!</p>
+    </div>
+
+    <!-- Создание объектов с рандомными позициями -->
+    <div class="flower object" style="--random-x: 0.1; --random-y: 0.2;"></div>
+    <div class="flower object" style="--random-x: 0.7; --random-y: 0.1;"></div>
+    <div class="flower object" style="--random-x: 0.5; --random-y: 0.6;"></div>
+    <div class="balloon object" style="--random-x: 0.8; --random-y: 0.9;"></div>
+    <div class="balloon object" style="--random-x: 0.3; --random-y: 0.8;"></div>
+    <div class="gift object" style="--random-x: 0.6; --random-y: 0.2;"></div>
+    <div class="gift object" style="--random-x: 0.2; --random-y: 0.7;"></div>
+
+    <!-- Больше объектов для насыщенности -->
+    <div class="flower object" style="--random-x: 0.4; --random-y: 0.5;"></div>
+    <div class="flower object" style="--random-x: 0.9; --random-y: 0.3;"></div>
+    <div class="balloon object" style="--random-x: 0.2; --random-y: 0.4;"></div>
+    <div class="gift object" style="--random-x: 0.7; --random-y: 0.8;"></div>
+
+</body>
+</html>
